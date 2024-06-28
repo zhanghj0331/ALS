@@ -3,11 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ALS/Camera/ALSCameraInterface.h"
 #include "GameFramework/Character.h"
 #include "ALSBaseCharacter.generated.h"
 
 UCLASS()
-class ALS_API AALSBaseCharacter : public ACharacter
+class ALS_API AALSBaseCharacter : public ACharacter, public IALSCameraInterface
 {
 	GENERATED_BODY()
 
@@ -22,4 +23,12 @@ public:
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	// ALS Camera Interface
+	virtual void GetCameraParameters(float& FirstPersonFOV, float& ThirdPersonFOV, bool& bRightShoulder) override;
+
+	virtual FVector GetFirstPersonCameraTarget() override;
+
+	virtual FTransform GetThirdPersonPivotTarget() override;
+
+	virtual void GetThirdPersonTraceParams(FVector& TraceOrigin, float& TraceRadius, ECollisionChannel& TraceChannel) override;
 };

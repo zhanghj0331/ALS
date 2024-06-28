@@ -61,3 +61,22 @@ void AALSBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 }
 
+void AALSBaseCharacter::GetCameraParameters(float& FirstPersonFOV, float& ThirdPersonFOV, bool& bRightShoulder)
+{
+}
+
+FVector AALSBaseCharacter::GetFirstPersonCameraTarget()
+{
+	return FVector(0, 0, 0);
+}
+
+FTransform AALSBaseCharacter::GetThirdPersonPivotTarget()
+{
+	return FTransform();
+}
+
+void AALSBaseCharacter::GetThirdPersonTraceParams(FVector& TraceOrigin, float& TraceRadius,
+	ECollisionChannel& TraceChannel)
+{
+}
+
